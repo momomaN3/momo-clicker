@@ -1,0 +1,189 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+}
+
+body {
+    background: #fdf5e6;
+    color: #4a2c11;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column; /* Stacked layout: Top to Bottom */
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Top Clicker Section */
+.clicker-section {
+    flex: 1; /* Takes up top portion of screen */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, #fff3e0 0%, #ffe0b2 100%);
+    border-bottom: 4px solid #d7ccc8;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+    color: #d84315;
+}
+
+.counter {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #5d4037;
+}
+
+.stats-display {
+    font-size: 1.1rem;
+    color: #8d6e63;
+    margin-bottom: 20px;
+}
+
+.momo-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Styled CSS Momo */
+.momo {
+    width: 180px;
+    height: 145px;
+    background: #fbf0db;
+    border-radius: 50% 50% 45% 45%;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(93, 64, 55, 0.2), inset 0 -10px 20px rgba(0,0,0,0.05);
+    transition: transform 0.05s ease;
+    border: 3px solid #f5e1bc;
+}
+
+.momo::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 20px;
+    background: #f1deb4;
+    border-radius: 50%;
+    box-shadow: -25px 8px 0 -3px #f1deb4, 25px 8px 0 -3px #f1deb4;
+}
+
+.momo:active {
+    transform: scale(0.95);
+}
+
+/* Pop-up Text Particles */
+.particle {
+    position: absolute;
+    pointer-events: none;
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #e65100;
+    animation: floatUp 0.6s ease-out forwards;
+    z-index: 10;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -100px) scale(1.1);
+    }
+}
+
+/* Bottom Shop Section */
+.shop-section {
+    height: 45vh; /* Fixed allocation for bottom section */
+    background: #ffffff;
+    padding: 15px 20px;
+    overflow-y: auto;
+}
+
+.shop-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: #5d4037;
+    border-bottom: 2px solid #f5f5f5;
+    padding-bottom: 5px;
+}
+
+/* Upgrades organized into an adaptive grid wrapping structure */
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+}
+
+/* Upgrade Item Layout */
+.item-card {
+    display: flex;
+    align-items: center;
+    background: #fff8e1;
+    border: 2px solid #ffe082;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.item-card:hover {
+    background: #fff3e0;
+    border-color: #ffb74d;
+}
+
+.item-card.disabled {
+    background: #f5f5f5;
+    border-color: #e0e0e0;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.item-icon {
+    font-size: 1.8rem;
+    margin-right: 12px;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-name {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #5d4037;
+}
+
+.item-effect {
+    font-size: 0.8rem;
+    color: #2e7d32;
+    margin: 2px 0;
+}
+
+.item-cost {
+    font-size: 0.85rem;
+    color: #e65100;
+    font-weight: 600;
+}
+
+.item-count {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #b0bec5;
+    padding-left: 8px;
+}
